@@ -1,0 +1,4 @@
+DNS_ZONE=your_zone_name
+DOMAIN=your.domain
+TTL=300
+
