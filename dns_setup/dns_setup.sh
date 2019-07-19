@@ -2,12 +2,14 @@
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
-if [ ! -f "${SCRIPT_DIR}/conf.txt" ]; then
+CONF_FILE="${SCRIPT_DIR}/../conf.txt"
+
+if [ ! -f "${CONF_FILE}" ]; then
 	echo "There is no conf.txt file."
 	exit 1
 fi
 
-. ${SCRIPT_DIR}/conf.txt
+. ${CONF_FILE}
 
 
 dns_records=()
