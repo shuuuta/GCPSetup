@@ -33,8 +33,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo apt install -y  locales
 sudo echo "ja_JP.UTF-8 UTF-8" > /etc/locale.gen
 sudo locale-gen ja_JP.UTF-8
-sudo localedef -i ja_JP -c -f UTF-8 -A /usr/share/locale/locale.alias ja_JP.UTF-8
 sudo /usr/sbin/update-locale LANG=ja_JP.UTF-8
+sudo localedef -f UTF-8 -i ja_JP ja_JP.utf8
 
 
 sudo mkdir -p /usr/local/etc/bash_completion.d
