@@ -1,6 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 
 curl https://krypt.co/kr | sh
+
+INITIALIZED_FLAG=".startup_script_initialized"
+
+if [ -f "${INITIALIZED_FLAG}" ]; then
+	exit 0
+fi
+
+touch $INITIALIZED_FLAG
+
+
 
 sudo apt update &&\
 sudo apt install -y gnupg2 ca-certificates lsb-release \
