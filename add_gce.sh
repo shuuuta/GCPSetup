@@ -29,5 +29,7 @@ gcloud compute --project "${PROJECT_NAME}" \
 	--metadata-from-file startup-script="${SCRIPT_DIR}/gce_setup/instance_install.sh"
 
 
-sh ${SCRIPT_DIR}/dns_setup/dns_setup.sh
+echo -e '\nDNS setup start.\n'
+
+${SCRIPT_DIR}/dns_setup/dns_setup.sh
 
