@@ -65,7 +65,11 @@ for i in `seq 0 ${#instances[@]}`; do
 	internal=${4}
 	external=${5}
 	status=${6}
-	#echo "[name]${name} [internal]${internal} [external]${external} [status]${statns}"
+	#echo "[name]${name} [internal]${internal} [external]${external} [status]${status}"
+
+	if [[ ${status} != "RUNNING" ]]; then
+		continue
+	fi
 
 	gcloud dns record-sets transaction add "${internal}" \
 		--name ${name}.i.${DOMAIN} \
