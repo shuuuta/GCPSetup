@@ -80,14 +80,20 @@ for i in `seq 0 ${#instances[@]}`; do
 		--ttl ${TTL} --type A \
 		--zone ${DNS_ZONE}
 
-	gcloud dns record-sets transaction add "${internal}" \
-		--name *.${name}.i.${DOMAIN} \
-		--ttl ${TTL} --type A \
-		--zone ${DNS_ZONE}
-	gcloud dns record-sets transaction add "${external}" \
-		--name *.${name}.e.${DOMAIN} \
-		--ttl ${TTL} --type A \
-		--zone ${DNS_ZONE}
+	for e in ${USE_VHOST[@]} ; do
+		if [[ ${e} != ${name} ]]; then
+			continue
+		fi
+
+		gcloud dns record-sets transaction add "${internal}" \
+			--name *.${name}.i.${DOMAIN} \
+			--ttl ${TTL} --type A \
+			--zone ${DNS_ZONE}
+		gcloud dns record-sets transaction add "${external}" \
+			--name *.${name}.e.${DOMAIN} \
+			--ttl ${TTL} --type A \
+			--zone ${DNS_ZONE}
+	done
 
 done
 
