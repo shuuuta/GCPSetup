@@ -24,7 +24,7 @@ gcloud compute --project "${PROJECT_NAME}" \
 	instances create "${INSTANCE_NAME}" \
 	--zone "asia-northeast1-b" \
 	--machine-type "g1-small" \
-	--image-family "debian-9" \
+	--image-family "debian-10" \
 	--image-project "debian-cloud" \
 	--metadata-from-file startup-script="${SCRIPT_DIR}/gce_setup/instance_install.sh"
 
