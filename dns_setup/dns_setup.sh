@@ -62,9 +62,19 @@ for i in `seq 0 ${#instances[@]}`; do
 
 	set ${instances[${i}]}
 	name=${1}
-	internal=${4}
-	external=${5}
-	status=${6}
+	ip_num=4
+	for j in `seq ${ip_num} ${#}`;do
+		IP_CHECK=$(echo ${!j} | egrep "^(([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$")
+		if [ "${IP_CHECK}" ] ; then
+			ip_num=${j}
+			break
+		fi
+	done
+	internal=${!ip_num}
+	let ip_num++
+	external=${!ip_num}
+	let ip_num++
+	status=${!ip_num}
 	#echo "[name]${name} [internal]${internal} [external]${external} [status]${status}"
 
 	if [[ ${status} != "RUNNING" ]]; then
