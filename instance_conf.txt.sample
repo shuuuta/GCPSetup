@@ -1,0 +1,5 @@
+zone="asia-northeast1-b"
+machine-type="g1-small"
+image-family="debian-10"
+image-project="debian-cloud"
+preemptible
