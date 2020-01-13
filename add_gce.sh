@@ -88,16 +88,16 @@ else
 	echo 'Preemptible:   true'
 fi
 
-#gcloud compute --project "${PROJECT_NAME}" \
-#	instances create "${INSTANCE_NAME}" \
-#	--zone ${INSTANCE_ZONE} \
-#	--machine-type ${INSTANCE_MACHINE_TYPE} \
-#	--image-family ${INSTANCE_IMAGE_FAMILY} \
-#	--image-project ${INSTANCE_IMAGE_PROJECT} \
-#	--metadata-from-file startup-script="${SCRIPT_DIR}/gce_setup/instance_install.sh" \
-#	${INSTANCE_PREEMPTIBLE}
+gcloud compute --project "${PROJECT_NAME}" \
+	instances create "${INSTANCE_NAME}" \
+	--zone ${INSTANCE_ZONE} \
+	--machine-type ${INSTANCE_MACHINE_TYPE} \
+	--image-family ${INSTANCE_IMAGE_FAMILY} \
+	--image-project ${INSTANCE_IMAGE_PROJECT} \
+	--metadata-from-file startup-script="${SCRIPT_DIR}/gce_setup/instance_install.sh" \
+	${INSTANCE_PREEMPTIBLE}
 
-#echo -e '\nDNS setup start.\n'
-#
-#${SCRIPT_DIR}/dns_setup/dns_setup.sh
+echo -e '\nDNS setup start.\n'
+
+${SCRIPT_DIR}/dns_setup/dns_setup.sh
 
