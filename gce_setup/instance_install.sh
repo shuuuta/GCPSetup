@@ -16,7 +16,7 @@ sudo apt update &&\
 sudo apt install -y gnupg2 ca-certificates lsb-release \
     apt-transport-https software-properties-common
 
-sudo apt install -y git tmux mosh
+sudo apt install -y git tmux mosh vim-gtk
 
 
 echo "deb http://nginx.org/packages/debian `lsb_release -cs` nginx" \
