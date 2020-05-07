@@ -53,3 +53,5 @@ sudo chmod a+x  /usr/local/etc/bash_completion.d/git-completion.bash
 sudo wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O /usr/local/etc/bash_completion.d/git-prompt.sh
 sudo chmod a+x /usr/local/etc/bash_completion.d/git-prompt.sh
 
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh |sh -s -- ~/.vim/dein
+
